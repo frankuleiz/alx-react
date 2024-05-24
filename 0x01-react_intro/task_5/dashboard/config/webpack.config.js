@@ -2,17 +2,17 @@ const path = require('path');
 const HtmlWebpackPlugin = require('html-webpack-plugin');
 
 module.exports = {
-  mode: 'development',
-  entry: path.resolve(__dirname, 'src/index.js'),
+  mode: 'development', // Set the mode to 'development'
+  entry: path.resolve(__dirname, 'task_5/dashboard/src/index.js'),
   output: {
     filename: 'bundle.js',
-    path: path.resolve(__dirname, 'dist'),
+    path: path.resolve(__dirname, 'task_5/dashboard/dist'),
     clean: true, // Ensure the output directory is cleaned before each build
   },
   devtool: 'inline-source-map', // Enables source mapping for better debugging
   devServer: {
     static: {
-      directory: path.resolve(__dirname, 'dist'),
+      directory: path.resolve(__dirname, 'task_5/dashboard/dist'), // Serve content from the 'dist' directory
     },
     hot: true,
     open: true, // Automatically opens the browser
@@ -26,8 +26,10 @@ module.exports = {
       },
       {
         test: /\.(png|svg|jpg|jpeg|gif)$/i,
-        type: 'asset/resource',
         use: [
+          {
+            loader: 'file-loader',
+          },
           {
             loader: 'image-webpack-loader',
             options: {
@@ -41,7 +43,7 @@ module.exports = {
   },
   plugins: [
     new HtmlWebpackPlugin({
-      template: path.resolve(__dirname, 'dist/index.html'),
+      template: path.resolve(__dirname, 'task_5/dashboard/dist/index.html'), // Updated template path
     }),
   ],
 };
