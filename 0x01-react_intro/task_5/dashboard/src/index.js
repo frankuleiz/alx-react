@@ -1,2 +1,1 @@
-// src/index.js
-console.log('Hello, Webpack!');
+console.log('Hello, world!');
