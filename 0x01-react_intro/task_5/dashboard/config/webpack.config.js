@@ -6,13 +6,13 @@ module.exports = {
   entry: './src/index.js',
   output: {
     filename: 'bundle.js',
-    path: path.resolve(__dirname, '../dist'), // Adjust the path to generate the dist folder in the dashboard directory
+    path: path.resolve(__dirname, '../dist'),
     clean: true,
   },
   devtool: 'inline-source-map',
   devServer: {
     static: {
-      directory: path.resolve(__dirname, '../dist'), // Adjust the path to serve content from the dist directory
+      directory: path.resolve(__dirname, '../dist'),
     },
     hot: true,
     open: true,
@@ -44,6 +44,7 @@ module.exports = {
   plugins: [
     new HtmlWebpackPlugin({
       template: './src/index.html',
+      inject: 'body', // Specify 'body' to inject bundle.js into the body of the HTML file
     }),
   ],
 };
