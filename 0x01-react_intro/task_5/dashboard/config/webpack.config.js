@@ -44,7 +44,7 @@ module.exports = {
   plugins: [
     new HtmlWebpackPlugin({
       template: './src/index.html',
-      inject: 'body',
+      inject: 'body', // Ensure 'body' is specified to inject bundle.js into the body of the HTML file
     }),
   ],
 };
