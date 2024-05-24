@@ -6,13 +6,13 @@ module.exports = {
   entry: './src/index.js',
   output: {
     filename: 'bundle.js',
-    path: path.resolve(__dirname, 'dist'),
+    path: path.resolve(__dirname, '../dist'), // Adjust the path to generate the dist folder in the dashboard directory
     clean: true,
   },
   devtool: 'inline-source-map',
   devServer: {
     static: {
-      directory: path.resolve(__dirname, 'dist'),
+      directory: path.resolve(__dirname, '../dist'), // Adjust the path to serve content from the dist directory
     },
     hot: true,
     open: true,
@@ -26,14 +26,24 @@ module.exports = {
       },
       {
         test: /\.(png|svg|jpg|jpeg|gif)$/i,
-        type: 'asset/resource',
+        use: [
+          {
+            loader: 'file-loader',
+          },
+          {
+            loader: 'image-webpack-loader',
+            options: {
+              bypassOnDebug: true,
+              disable: true,
+            },
+          },
+        ],
       },
     ],
   },
   plugins: [
     new HtmlWebpackPlugin({
-      template: './src/index.html', // Path to your HTML template file
-      filename: 'index.html', // Output filename in the dist directory
+      template: './src/index.html',
     }),
   ],
 };
