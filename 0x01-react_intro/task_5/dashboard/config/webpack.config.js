@@ -15,8 +15,8 @@ module.exports = {
       directory: path.resolve(__dirname, '../dist'),
     },
     hot: true,
-    open: true,
-    port: 8080,
+    open: false, // Set to false to avoid the 'Not supported' error
+    port: 8564,
   },
   module: {
     rules: [
@@ -44,7 +44,7 @@ module.exports = {
   plugins: [
     new HtmlWebpackPlugin({
       template: './src/index.html',
-      inject: 'body', // Specify 'body' to inject bundle.js into the body of the HTML file
+      inject: 'body',
     }),
   ],
 };
