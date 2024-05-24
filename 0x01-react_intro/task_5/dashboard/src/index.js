@@ -1,3 +1,2 @@
-import './styles.css';
-
-console.log('Hello from index.js');
+// src/index.js
+console.log('Hello, Webpack!');
