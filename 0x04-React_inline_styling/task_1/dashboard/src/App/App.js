@@ -52,22 +52,26 @@ class App extends React.Component {
             <Notifications listNotifications={this.listNotifications} />
             <Header />
           </div>
-          {this.props.isLoggedIn ? (
-            <BodySectionWithMarginBottom title="Course list">
-              <CourseList listCourses={this.listCourses} />
-            </BodySectionWithMarginBottom>
-          ) : (
-            <BodySectionWithMarginBottom title="Log in to continue">
-              <Login />
-            </BodySectionWithMarginBottom>
-          )}
-          <BodySection title="News from the school">
-            <p>
-              Lorem ipsum dolor sit amet consectetur adipisicing elit. Perspiciatis at tempora odio, necessitatibus repudiandae reiciendis cum nemo sed asperiores ut molestiae eaque aliquam illo ipsa
-              iste vero dolor voluptates.
-            </p>
-          </BodySection>
-          <Footer />
+          <div className={css(styles.body)}>
+            {this.props.isLoggedIn ? (
+              <BodySectionWithMarginBottom title="Course list">
+                <CourseList listCourses={this.listCourses} />
+              </BodySectionWithMarginBottom>
+            ) : (
+              <BodySectionWithMarginBottom title="Log in to continue">
+                <Login />
+              </BodySectionWithMarginBottom>
+            )}
+            <BodySection title="News from the school">
+              <p>
+                Lorem ipsum dolor sit amet consectetur adipisicing elit. Perspiciatis at tempora odio, necessitatibus repudiandae reiciendis cum nemo sed asperiores ut molestiae eaque aliquam illo ipsa
+                iste vero dolor voluptates.
+              </p>
+            </BodySection>
+          </div>
+          <div className={css(styles.footer)}>
+            <Footer />
+          </div>
         </div>
       </React.Fragment>
     );
@@ -80,6 +84,17 @@ const styles = StyleSheet.create({
     maxWidth: "100vw",
     position: "relative",
     fontFamily: "Arial, Helvetica, sans-serif",
+  },
+  body: {
+    padding: "20px",
+  },
+  footer: {
+    position: "absolute",
+    bottom: "0",
+    width: "100%",
+    textAlign: "center",
+    borderTop: "1px solid #ccc",
+    padding: "10px 0",
   },
 });
 
