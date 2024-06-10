@@ -95,20 +95,14 @@ describe("When ctrl + h is pressed", () => {
   document.alert.mockClear();
 });
 
-it("Has default state for displaDraweer false", () => {
+it("Has default state for displayDrawer false", () => {
   const wrapper = shallow(<App />);
   expect(wrapper.state().displayDrawer).toEqual(false);
-
-  const instance = wrapper.instance();
-
-  instance.handleDisplayDrawer();
-
-  expect(wrapper.state().displayDrawer).toEqual(true);
 });
 
 it("displayDrawer changes to true when calling handleDisplayDrawer", () => {
   const wrapper = shallow(<App />);
-  expect(wrapper.state().handleDisplayDrawer).toEqual(false);
+  expect(wrapper.state().displayDrawer).toEqual(false);
 
   const instance = wrapper.instance();
 
@@ -117,9 +111,11 @@ it("displayDrawer changes to true when calling handleDisplayDrawer", () => {
   expect(wrapper.state().displayDrawer).toEqual(true);
 });
 
-it("displayDrawer changes to false when calling handlehideDrawer", () => {
+it("displayDrawer changes to false when calling handleHideDrawer", () => {
   const wrapper = shallow(<App />);
   expect(wrapper.state().displayDrawer).toEqual(false);
+
+  // const instance = wrapper.instance();
 
   wrapper.instance().handleDisplayDrawer();
 
